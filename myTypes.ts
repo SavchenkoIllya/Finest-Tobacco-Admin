@@ -80,6 +80,20 @@ export interface Global {
   Header?: SharedHeader | null;
 };
 
+export interface Message {
+  id?: number;
+  documentId?: string;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  publishedAt?: Date | string;
+  locale?: string | null;
+  name: string;
+  phone?: string;
+  email?: string;
+  details?: string;
+  work_status?: "read" | "unread" | "pending" | "answered";
+};
+
 export interface Product {
   id?: number;
   documentId?: string;

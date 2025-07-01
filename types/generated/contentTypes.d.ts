@@ -447,40 +447,6 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiFeatureEnabledFeatureEnabled
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'feature_enableds';
-  info: {
-    displayName: 'Feature Enabled';
-    pluralName: 'feature-enableds';
-    singularName: 'feature-enabled';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    active: Schema.Attribute.Boolean &
-      Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<true>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::feature-enabled.feature-enabled'
-    > &
-      Schema.Attribute.Private;
-    name: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.Unique;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
 export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   collectionName: 'globals';
   info: {
@@ -700,6 +666,35 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiSubscriberSubscriber extends Struct.CollectionTypeSchema {
+  collectionName: 'subscribers';
+  info: {
+    displayName: 'Subscriber';
+    pluralName: 'subscribers';
+    singularName: 'subscriber';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    email: Schema.Attribute.Email & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::subscriber.subscriber'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1216,10 +1211,10 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::brand.brand': ApiBrandBrand;
       'api::category.category': ApiCategoryCategory;
-      'api::feature-enabled.feature-enabled': ApiFeatureEnabledFeatureEnabled;
       'api::global.global': ApiGlobalGlobal;
       'api::message.message': ApiMessageMessage;
       'api::product.product': ApiProductProduct;
+      'api::subscriber.subscriber': ApiSubscriberSubscriber;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

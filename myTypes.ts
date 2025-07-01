@@ -123,17 +123,6 @@ export interface Category {
   name?: string;
 };
 
-export interface FeatureEnabled {
-  id?: number;
-  documentId?: string;
-  createdAt?: Date | string;
-  updatedAt?: Date | string;
-  publishedAt?: Date | string;
-  locale?: string | null;
-  name: string;
-  active: boolean;
-};
-
 export interface Global {
   id?: number;
   documentId?: string;
@@ -186,6 +175,17 @@ export interface Product {
   category?: Category | null;
   image?: Media | null;
   tobacco_part_length?: number;
+};
+
+export interface Subscriber {
+  id?: number;
+  documentId?: string;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  publishedAt?: Date | string;
+  locale?: string | null;
+  name: string;
+  email: string;
 };
 
 export interface Media {

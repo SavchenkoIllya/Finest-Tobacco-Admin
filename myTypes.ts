@@ -46,6 +46,8 @@ export interface Brand {
   publishedAt?: Date | string;
   locale?: string | null;
   name?: string;
+  description?: string;
+  logo?: Media | null;
 };
 
 export interface Category {

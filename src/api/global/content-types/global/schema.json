@@ -38,6 +38,86 @@
       },
       "component": "shared.header",
       "repeatable": false
+    },
+    "age_modal": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "shared.age-modal",
+      "repeatable": false
+    },
+    "about_content": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "shared.about-content",
+      "repeatable": false,
+      "required": true
+    },
+    "brands_section": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "shared.brands-section",
+      "repeatable": false
+    },
+    "additional_about_section": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "shared.additional-about-section",
+      "repeatable": false
+    },
+    "scroll_labels": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "shared.scroll-labels",
+      "repeatable": true
+    },
+    "contacts_section": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "shared.contacts-section",
+      "repeatable": false
+    },
+    "copyrights_text": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "default": "Copyright © 25 All rights reserved - Finest Tobacco IG"
+    },
+    "map_location": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "shared.map-location",
+      "repeatable": false
     }
   }
 }

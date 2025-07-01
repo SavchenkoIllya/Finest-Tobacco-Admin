@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_shared_map_locations",
+  "info": {
+    "displayName": "Map Location"
+  },
+  "options": {},
+  "attributes": {
+    "lat": {
+      "type": "decimal",
+      "required": true,
+      "unique": true,
+      "default": 48.6149893
+    },
+    "lng": {
+      "type": "decimal",
+      "required": true,
+      "unique": true,
+      "default": 17.8352878
+    }
+  },
+  "config": {}
+}

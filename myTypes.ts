@@ -1,4 +1,35 @@
 
+export interface SharedAboutContent {
+  id?: number;
+  main_title: string;
+  secondary_title: string;
+  description: string;
+  pillars?: SharedPillar[] | null;
+};
+
+export interface SharedAdditionalAboutSection {
+  id?: number;
+  catchphrase: string;
+  title_main: string;
+  description_main: string;
+  title_secondary?: string;
+  description_secondary?: string;
+};
+
+export interface SharedAgeModal {
+  id?: number;
+  heading: string;
+  main_text: string;
+  cancel_button: string;
+  confirm_button: string;
+};
+
+export interface SharedBrandsSection {
+  id?: number;
+  title: string;
+  brands?: Brand[] | null;
+};
+
 export interface SharedContact {
   id?: number;
   name?: string;
@@ -7,15 +38,41 @@ export interface SharedContact {
   type?: "whatsapp" | "telegram" | "email" | "phone" | "viber";
 };
 
+export interface SharedContactsSection {
+  id?: number;
+  heading: string;
+  form_inputs: SharedInput[] | null;
+  send_button: string;
+};
+
 export interface SharedHeader {
   id?: number;
   logo?: Media | null;
   Contacts?: SharedContact[] | null;
 };
 
+export interface SharedInput {
+  id?: number;
+  placeholder: string;
+  field_name: string;
+  type: "field" | "textarea";
+};
+
+export interface SharedMapLocation {
+  id?: number;
+  lat: number;
+  lng: number;
+};
+
 export interface SharedMedia {
   id?: number;
   file?: Media | null;
+};
+
+export interface SharedPillar {
+  id?: number;
+  title: string;
+  label: string;
 };
 
 export interface SharedQuote {
@@ -27,6 +84,12 @@ export interface SharedQuote {
 export interface SharedRichText {
   id?: number;
   body?: string;
+};
+
+export interface SharedScrollLabels {
+  id?: number;
+  type: "hero" | "about" | "production" | "brands" | "contacts";
+  name: string;
 };
 
 export interface SharedSeo {
@@ -80,6 +143,14 @@ export interface Global {
   locale?: string | null;
   video?: Media | null;
   Header?: SharedHeader | null;
+  age_modal?: SharedAgeModal | null;
+  about_content: SharedAboutContent | null;
+  brands_section?: SharedBrandsSection | null;
+  additional_about_section?: SharedAdditionalAboutSection | null;
+  scroll_labels?: SharedScrollLabels[] | null;
+  contacts_section?: SharedContactsSection | null;
+  copyrights_text?: string;
+  map_location?: SharedMapLocation | null;
 };
 
 export interface Message {

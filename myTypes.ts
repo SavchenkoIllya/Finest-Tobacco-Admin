@@ -1,6 +1,7 @@
 
 export interface SharedAboutContent {
   id?: number;
+  heading: string;
   main_title: string;
   secondary_title: string;
   description: string;
@@ -9,7 +10,6 @@ export interface SharedAboutContent {
 
 export interface SharedAdditionalAboutSection {
   id?: number;
-  catchphrase: string;
   title_main: string;
   description_main: string;
   title_secondary?: string;
@@ -28,6 +28,14 @@ export interface SharedBrandsSection {
   id?: number;
   title: string;
   brands?: Brand[] | null;
+  subtitle?: string;
+};
+
+export interface SharedCatalogue {
+  id?: number;
+  title: string;
+  brands?: Brand[] | null;
+  formats?: Format[] | null;
 };
 
 export interface SharedContact {
@@ -75,6 +83,13 @@ export interface SharedPillar {
   label: string;
 };
 
+export interface SharedProductionSection {
+  id?: number;
+  title?: string;
+  description?: string;
+  catchphrase?: string;
+};
+
 export interface SharedQuote {
   id?: number;
   title?: string;
@@ -108,7 +123,7 @@ export interface Brand {
   updatedAt?: Date | string;
   publishedAt?: Date | string;
   locale?: string | null;
-  name?: string;
+  name: string;
   description?: string;
   logo?: Media | null;
 };
@@ -121,6 +136,16 @@ export interface Category {
   publishedAt?: Date | string;
   locale?: string | null;
   name?: string;
+};
+
+export interface Format {
+  id?: number;
+  documentId?: string;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  publishedAt?: Date | string;
+  locale?: string | null;
+  name: string;
 };
 
 export interface Global {
@@ -140,6 +165,9 @@ export interface Global {
   contacts_section?: SharedContactsSection | null;
   copyrights_text?: string;
   map_location?: SharedMapLocation | null;
+  production_section?: SharedProductionSection | null;
+  catchphrase?: string;
+  catalogue?: SharedCatalogue | null;
 };
 
 export interface Message {
@@ -163,9 +191,7 @@ export interface Product {
   updatedAt?: Date | string;
   publishedAt?: Date | string;
   locale?: string | null;
-  title?: string;
-  description?: string;
-  subtitle?: string;
+  title: string;
   filter_part_length?: number;
   nicotine?: number;
   tar?: number;
@@ -175,6 +201,9 @@ export interface Product {
   category?: Category | null;
   image?: Media | null;
   tobacco_part_length?: number;
+  format?: Format | null;
+  blend?: string;
+  filter_parameters?: string;
 };
 
 export interface Subscriber {

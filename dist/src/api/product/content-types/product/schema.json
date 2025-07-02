@@ -21,23 +21,8 @@
                 "i18n": {
                     "localized": true
                 }
-            }
-        },
-        "description": {
-            "type": "string",
-            "pluginOptions": {
-                "i18n": {
-                    "localized": true
-                }
-            }
-        },
-        "subtitle": {
-            "type": "string",
-            "pluginOptions": {
-                "i18n": {
-                    "localized": true
-                }
-            }
+            },
+            "required": true
         },
         "filter_part_length": {
             "type": "integer",
@@ -106,6 +91,28 @@
         },
         "tobacco_part_length": {
             "type": "integer",
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            }
+        },
+        "format": {
+            "type": "relation",
+            "relation": "oneToOne",
+            "target": "api::format.format"
+        },
+        "blend": {
+            "type": "string",
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            },
+            "default": "American blend"
+        },
+        "filter_parameters": {
+            "type": "string",
             "pluginOptions": {
                 "i18n": {
                     "localized": true

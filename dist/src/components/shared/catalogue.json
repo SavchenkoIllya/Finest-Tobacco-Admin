@@ -1,12 +1,13 @@
 {
-    "collectionName": "components_shared_brands_sections",
+    "collectionName": "components_shared_catalogues",
     "info": {
-        "displayName": "brands_section"
+        "displayName": "Catalogue"
     },
     "options": {},
     "attributes": {
         "title": {
             "type": "string",
+            "default": "Catalogue",
             "required": true
         },
         "brands": {
@@ -14,8 +15,10 @@
             "relation": "oneToMany",
             "target": "api::brand.brand"
         },
-        "subtitle": {
-            "type": "string"
+        "formats": {
+            "type": "relation",
+            "relation": "oneToMany",
+            "target": "api::format.format"
         }
     },
     "config": {}

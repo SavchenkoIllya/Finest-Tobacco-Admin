@@ -5,6 +5,11 @@
   },
   "options": {},
   "attributes": {
+    "heading": {
+      "type": "string",
+      "default": "About us",
+      "required": true
+    },
     "main_title": {
       "type": "string",
       "default": "our promise:",

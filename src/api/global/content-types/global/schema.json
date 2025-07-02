@@ -118,6 +118,36 @@
       },
       "component": "shared.map-location",
       "repeatable": false
+    },
+    "production_section": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "shared.production-section",
+      "repeatable": false
+    },
+    "catchphrase": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "default": "“Crafting true quality tobacco products„",
+      "required": false
+    },
+    "catalogue": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "shared.catalogue",
+      "repeatable": false
     }
   }
 }

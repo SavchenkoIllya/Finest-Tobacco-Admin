@@ -5,11 +5,6 @@
   },
   "options": {},
   "attributes": {
-    "catchphrase": {
-      "type": "string",
-      "default": "“Crafting true quality tobacco products„",
-      "required": true
-    },
     "title_main": {
       "type": "string",
       "required": true

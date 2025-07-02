@@ -9,6 +9,9 @@ export interface SharedAboutContent extends Struct.ComponentSchema {
     description: Schema.Attribute.Text &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'            We are a passionate tobacco manufacturer committed to delivering             high-quality, affordable cigarettes for adult smokers. With more             than a decade of expertise, our company blends time-honored tobacco             traditions with modern innovation to create products that stand out             in both taste and reliability. While our brand may not yet be widely             known, we are driven by a clear philosophy: every smoker deserves             access to quality without compromise. We focus on craftsmanship,             consistency, and honest pricing \u2014 values that define who we are and             what we offer. Proudly serving both domestic and international             markets, we continue to expand our reach while maintaining the             integrity and care that go into every product we make.'>;
+    heading: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'About us'>;
     main_title: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'our promise:'>;
@@ -32,9 +35,6 @@ export interface SharedAdditionalAboutSection extends Struct.ComponentSchema {
     displayName: 'Additional About Section';
   };
   attributes: {
-    catchphrase: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<'\u201CCrafting true quality tobacco products\u201E'>;
     description_main: Schema.Attribute.Text & Schema.Attribute.Required;
     description_secondary: Schema.Attribute.Text;
     title_main: Schema.Attribute.String & Schema.Attribute.Required;
@@ -66,7 +66,22 @@ export interface SharedBrandsSection extends Struct.ComponentSchema {
   };
   attributes: {
     brands: Schema.Attribute.Relation<'oneToMany', 'api::brand.brand'>;
+    subtitle: Schema.Attribute.String;
     title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface SharedCatalogue extends Struct.ComponentSchema {
+  collectionName: 'components_shared_catalogues';
+  info: {
+    displayName: 'Catalogue';
+  };
+  attributes: {
+    brands: Schema.Attribute.Relation<'oneToMany', 'api::brand.brand'>;
+    formats: Schema.Attribute.Relation<'oneToMany', 'api::format.format'>;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Catalogue'>;
   };
 }
 
@@ -133,11 +148,11 @@ export interface SharedMapLocation extends Struct.ComponentSchema {
     displayName: 'Map Location';
   };
   attributes: {
-    lat: Schema.Attribute.Decimal &
+    lat: Schema.Attribute.Float &
       Schema.Attribute.Required &
       Schema.Attribute.Unique &
       Schema.Attribute.DefaultTo<48.6149893>;
-    lng: Schema.Attribute.Decimal &
+    lng: Schema.Attribute.Float &
       Schema.Attribute.Required &
       Schema.Attribute.Unique &
       Schema.Attribute.DefaultTo<17.8352878>;
@@ -167,6 +182,18 @@ export interface SharedPillar extends Struct.ComponentSchema {
     title: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'1'>;
+  };
+}
+
+export interface SharedProductionSection extends Struct.ComponentSchema {
+  collectionName: 'components_shared_production_sections';
+  info: {
+    displayName: 'Production Section';
+  };
+  attributes: {
+    catchphrase: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -238,6 +265,7 @@ declare module '@strapi/strapi' {
       'shared.additional-about-section': SharedAdditionalAboutSection;
       'shared.age-modal': SharedAgeModal;
       'shared.brands-section': SharedBrandsSection;
+      'shared.catalogue': SharedCatalogue;
       'shared.contact': SharedContact;
       'shared.contacts-section': SharedContactsSection;
       'shared.header': SharedHeader;
@@ -245,6 +273,7 @@ declare module '@strapi/strapi' {
       'shared.map-location': SharedMapLocation;
       'shared.media': SharedMedia;
       'shared.pillar': SharedPillar;
+      'shared.production-section': SharedProductionSection;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;
       'shared.scroll-labels': SharedScrollLabels;

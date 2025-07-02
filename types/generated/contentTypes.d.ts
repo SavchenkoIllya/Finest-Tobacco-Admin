@@ -545,16 +545,15 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
           localized: true;
         };
       }>;
-    copyrights_text: Schema.Attribute.String &
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    footer_section: Schema.Attribute.Component<'shared.footer', false> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
-      }> &
-      Schema.Attribute.DefaultTo<'Copyright \u00A9 25 All rights reserved - Finest Tobacco IG'>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
+      }>;
     Header: Schema.Attribute.Component<'shared.header', false> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {

@@ -100,15 +100,6 @@
             "component": "shared.contacts-section",
             "repeatable": false
         },
-        "copyrights_text": {
-            "type": "string",
-            "pluginOptions": {
-                "i18n": {
-                    "localized": true
-                }
-            },
-            "default": "Copyright © 25 All rights reserved - Finest Tobacco IG"
-        },
         "map_location": {
             "type": "component",
             "pluginOptions": {
@@ -147,6 +138,16 @@
                 }
             },
             "component": "shared.catalogue",
+            "repeatable": false
+        },
+        "footer_section": {
+            "type": "component",
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            },
+            "component": "shared.footer",
             "repeatable": false
         }
     }

@@ -53,6 +53,14 @@ export interface SharedContactsSection {
   send_button: string;
 };
 
+export interface SharedFooter {
+  id?: number;
+  copyrights?: string;
+  terms_conditions?: Media | null;
+  full_address?: string;
+  privacy_legal?: Media | null;
+};
+
 export interface SharedHeader {
   id?: number;
   logo?: Media | null;
@@ -163,11 +171,11 @@ export interface Global {
   additional_about_section?: SharedAdditionalAboutSection | null;
   scroll_labels?: SharedScrollLabels[] | null;
   contacts_section?: SharedContactsSection | null;
-  copyrights_text?: string;
   map_location?: SharedMapLocation | null;
   production_section?: SharedProductionSection | null;
   catchphrase?: string;
   catalogue?: SharedCatalogue | null;
+  footer_section?: SharedFooter | null;
 };
 
 export interface Message {

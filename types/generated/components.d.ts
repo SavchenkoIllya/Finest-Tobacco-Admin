@@ -115,6 +115,19 @@ export interface SharedContactsSection extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedFooter extends Struct.ComponentSchema {
+  collectionName: 'components_shared_footers';
+  info: {
+    displayName: 'Footer';
+  };
+  attributes: {
+    copyrights: Schema.Attribute.String;
+    full_address: Schema.Attribute.Text;
+    privacy_legal: Schema.Attribute.Media<'files'>;
+    terms_conditions: Schema.Attribute.Media<'files'>;
+  };
+}
+
 export interface SharedHeader extends Struct.ComponentSchema {
   collectionName: 'components_shared_headers';
   info: {
@@ -268,6 +281,7 @@ declare module '@strapi/strapi' {
       'shared.catalogue': SharedCatalogue;
       'shared.contact': SharedContact;
       'shared.contacts-section': SharedContactsSection;
+      'shared.footer': SharedFooter;
       'shared.header': SharedHeader;
       'shared.input': SharedInput;
       'shared.map-location': SharedMapLocation;

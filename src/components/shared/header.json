@@ -17,6 +17,11 @@
       "type": "component",
       "component": "shared.contact",
       "repeatable": true
+    },
+    "navbar": {
+      "type": "component",
+      "component": "shared.navbar",
+      "repeatable": false
     }
   },
   "config": {}

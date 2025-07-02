@@ -65,6 +65,7 @@ export interface SharedHeader {
   id?: number;
   logo?: Media | null;
   Contacts?: SharedContact[] | null;
+  navbar?: SharedNavbar | null;
 };
 
 export interface SharedInput {
@@ -83,6 +84,17 @@ export interface SharedMapLocation {
 export interface SharedMedia {
   id?: number;
   file?: Media | null;
+};
+
+export interface SharedNavItem {
+  id?: number;
+  name: string;
+  section_id?: "about" | "brands" | "catalogue" | "contacts";
+};
+
+export interface SharedNavbar {
+  id?: number;
+  navitems?: SharedNavItem[] | null;
 };
 
 export interface SharedPillar {

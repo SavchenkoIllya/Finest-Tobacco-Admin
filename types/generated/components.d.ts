@@ -136,6 +136,7 @@ export interface SharedHeader extends Struct.ComponentSchema {
   attributes: {
     Contacts: Schema.Attribute.Component<'shared.contact', true>;
     logo: Schema.Attribute.Media<'images' | 'files'>;
+    navbar: Schema.Attribute.Component<'shared.navbar', false>;
   };
 }
 
@@ -180,6 +181,29 @@ export interface SharedMedia extends Struct.ComponentSchema {
   };
   attributes: {
     file: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
+  };
+}
+
+export interface SharedNavItem extends Struct.ComponentSchema {
+  collectionName: 'components_shared_nav_items';
+  info: {
+    displayName: 'Nav Item';
+  };
+  attributes: {
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    section_id: Schema.Attribute.Enumeration<
+      ['about', 'brands', 'catalogue', 'contacts']
+    >;
+  };
+}
+
+export interface SharedNavbar extends Struct.ComponentSchema {
+  collectionName: 'components_shared_navbars';
+  info: {
+    displayName: 'Navbar';
+  };
+  attributes: {
+    navitems: Schema.Attribute.Component<'shared.nav-item', true>;
   };
 }
 
@@ -286,6 +310,8 @@ declare module '@strapi/strapi' {
       'shared.input': SharedInput;
       'shared.map-location': SharedMapLocation;
       'shared.media': SharedMedia;
+      'shared.nav-item': SharedNavItem;
+      'shared.navbar': SharedNavbar;
       'shared.pillar': SharedPillar;
       'shared.production-section': SharedProductionSection;
       'shared.quote': SharedQuote;

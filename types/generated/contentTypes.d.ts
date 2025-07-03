@@ -643,6 +643,11 @@ export interface ApiProductCardProductCard extends Struct.SingleTypeSchema {
   attributes: {
     close_text: Schema.Attribute.String &
       Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
       Schema.Attribute.DefaultTo<'Close'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -650,7 +655,12 @@ export interface ApiProductCardProductCard extends Struct.SingleTypeSchema {
     description_fields: Schema.Attribute.Component<
       'shared.description-field',
       true
-    >;
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',

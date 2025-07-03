@@ -24,14 +24,6 @@
       },
       "required": true
     },
-    "filter_part_length": {
-      "type": "integer",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
     "nicotine": {
       "type": "decimal",
       "pluginOptions": {
@@ -41,14 +33,6 @@
       }
     },
     "tar": {
-      "type": "integer",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "diameter": {
       "type": "integer",
       "pluginOptions": {
         "i18n": {
@@ -88,14 +72,6 @@
         "videos",
         "audios"
       ]
-    },
-    "tobacco_part_length": {
-      "type": "integer",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
     },
     "format": {
       "type": "relation",

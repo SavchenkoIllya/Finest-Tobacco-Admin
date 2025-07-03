@@ -53,6 +53,13 @@ export interface SharedContactsSection {
   send_button: string;
 };
 
+export interface SharedDescriptionField {
+  id?: number;
+  icon: Media | null;
+  title: string;
+  property: "blend" | "cigarette_length" | "nicotine" | "tar" | "filter_parameters";
+};
+
 export interface SharedFooter {
   id?: number;
   copyrights?: string;
@@ -212,18 +219,26 @@ export interface Product {
   publishedAt?: Date | string;
   locale?: string | null;
   title: string;
-  filter_part_length?: number;
   nicotine?: number;
   tar?: number;
-  diameter?: number;
   cigarette_length?: number;
   brand?: Brand | null;
   category?: Category | null;
   image?: Media | null;
-  tobacco_part_length?: number;
   format?: Format | null;
   blend?: string;
   filter_parameters?: string;
+};
+
+export interface ProductCard {
+  id?: number;
+  documentId?: string;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  publishedAt?: Date | string;
+  locale?: string | null;
+  description_fields?: SharedDescriptionField[] | null;
+  close_text: string;
 };
 
 export interface Subscriber {

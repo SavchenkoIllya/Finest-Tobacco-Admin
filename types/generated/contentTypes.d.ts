@@ -631,6 +631,44 @@ export interface ApiMessageMessage extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiProductCardProductCard extends Struct.SingleTypeSchema {
+  collectionName: 'product_cards';
+  info: {
+    displayName: 'ProductCard';
+    pluralName: 'product-cards';
+    singularName: 'product-card';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    close_text: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Close'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description_fields: Schema.Attribute.Component<
+      'shared.description-field',
+      true
+    >;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::product-card.product-card'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiProductProduct extends Struct.CollectionTypeSchema {
   collectionName: 'products';
   info: {
@@ -665,19 +703,7 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    diameter: Schema.Attribute.Integer &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     filter_parameters: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    filter_part_length: Schema.Attribute.Integer &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -710,12 +736,6 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
       }>;
     title: Schema.Attribute.String &
       Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    tobacco_part_length: Schema.Attribute.Integer &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1269,6 +1289,7 @@ declare module '@strapi/strapi' {
       'api::format.format': ApiFormatFormat;
       'api::global.global': ApiGlobalGlobal;
       'api::message.message': ApiMessageMessage;
+      'api::product-card.product-card': ApiProductCardProductCard;
       'api::product.product': ApiProductProduct;
       'api::subscriber.subscriber': ApiSubscriberSubscriber;
       'plugin::content-releases.release': PluginContentReleasesRelease;

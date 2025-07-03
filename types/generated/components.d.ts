@@ -115,6 +115,22 @@ export interface SharedContactsSection extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedDescriptionField extends Struct.ComponentSchema {
+  collectionName: 'components_shared_description_fields';
+  info: {
+    displayName: 'Description Field';
+  };
+  attributes: {
+    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
+      Schema.Attribute.Required;
+    property: Schema.Attribute.Enumeration<
+      ['blend', 'cigarette_length', 'nicotine', 'tar', 'filter_parameters']
+    > &
+      Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface SharedFooter extends Struct.ComponentSchema {
   collectionName: 'components_shared_footers';
   info: {
@@ -305,6 +321,7 @@ declare module '@strapi/strapi' {
       'shared.catalogue': SharedCatalogue;
       'shared.contact': SharedContact;
       'shared.contacts-section': SharedContactsSection;
+      'shared.description-field': SharedDescriptionField;
       'shared.footer': SharedFooter;
       'shared.header': SharedHeader;
       'shared.input': SharedInput;

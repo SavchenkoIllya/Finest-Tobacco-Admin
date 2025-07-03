@@ -131,3 +131,4 @@ build
 /.env
 /.env.production
 /config/.env
+/dist/

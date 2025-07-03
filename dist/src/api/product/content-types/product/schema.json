@@ -24,30 +24,6 @@
             },
             "required": true
         },
-        "nicotine": {
-            "type": "decimal",
-            "pluginOptions": {
-                "i18n": {
-                    "localized": true
-                }
-            }
-        },
-        "tar": {
-            "type": "integer",
-            "pluginOptions": {
-                "i18n": {
-                    "localized": true
-                }
-            }
-        },
-        "cigarette_length": {
-            "type": "integer",
-            "pluginOptions": {
-                "i18n": {
-                    "localized": true
-                }
-            }
-        },
         "brand": {
             "type": "relation",
             "relation": "oneToOne",
@@ -94,6 +70,33 @@
                     "localized": true
                 }
             }
+        },
+        "nicotine": {
+            "type": "string",
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            },
+            "required": true
+        },
+        "tar": {
+            "type": "string",
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            },
+            "required": true
+        },
+        "cigarette_length": {
+            "type": "string",
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            },
+            "required": true
         }
     }
 }

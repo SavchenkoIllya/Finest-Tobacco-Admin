@@ -694,7 +694,8 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
       Schema.Attribute.DefaultTo<'American blend'>;
     brand: Schema.Attribute.Relation<'oneToOne', 'api::brand.brand'>;
     category: Schema.Attribute.Relation<'oneToOne', 'api::category.category'>;
-    cigarette_length: Schema.Attribute.Integer &
+    cigarette_length: Schema.Attribute.String &
+      Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -721,14 +722,16 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
       'oneToMany',
       'api::product.product'
     >;
-    nicotine: Schema.Attribute.Decimal &
+    nicotine: Schema.Attribute.String &
+      Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
     publishedAt: Schema.Attribute.DateTime;
-    tar: Schema.Attribute.Integer &
+    tar: Schema.Attribute.String &
+      Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;

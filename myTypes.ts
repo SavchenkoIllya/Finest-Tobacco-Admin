@@ -219,15 +219,15 @@ export interface Product {
   publishedAt?: Date | string;
   locale?: string | null;
   title: string;
-  nicotine?: number;
-  tar?: number;
-  cigarette_length?: number;
   brand?: Brand | null;
   category?: Category | null;
   image?: Media | null;
   format?: Format | null;
   blend?: string;
   filter_parameters?: string;
+  nicotine: string;
+  tar: string;
+  cigarette_length: string;
 };
 
 export interface ProductCard {

@@ -279,13 +279,7 @@ export interface SharedScrollLabels extends Struct.ComponentSchema {
   info: {
     displayName: 'Scroll labels';
   };
-  attributes: {
-    name: Schema.Attribute.String & Schema.Attribute.Required;
-    type: Schema.Attribute.Enumeration<
-      ['hero', 'about', 'production', 'brands', 'contacts']
-    > &
-      Schema.Attribute.Required;
-  };
+  attributes: {};
 }
 
 export interface SharedSeo extends Struct.ComponentSchema {

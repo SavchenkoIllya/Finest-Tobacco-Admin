@@ -130,8 +130,6 @@ export interface SharedRichText {
 
 export interface SharedScrollLabels {
   id?: number;
-  type: "hero" | "about" | "production" | "brands" | "contacts";
-  name: string;
 };
 
 export interface SharedSeo {
@@ -182,13 +180,12 @@ export interface Global {
   updatedAt?: Date | string;
   publishedAt?: Date | string;
   locale?: string | null;
-  video?: Media | null;
+  video_url?: string;
   Header?: SharedHeader | null;
   age_modal?: SharedAgeModal | null;
   about_content: SharedAboutContent | null;
   brands_section?: SharedBrandsSection | null;
   additional_about_section?: SharedAdditionalAboutSection | null;
-  scroll_labels?: SharedScrollLabels[] | null;
   contacts_section?: SharedContactsSection | null;
   map_location?: SharedMapLocation | null;
   production_section?: SharedProductionSection | null;

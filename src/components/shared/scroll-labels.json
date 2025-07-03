@@ -4,22 +4,6 @@
     "displayName": "Scroll labels"
   },
   "options": {},
-  "attributes": {
-    "type": {
-      "type": "enumeration",
-      "required": true,
-      "enum": [
-        "hero",
-        "about",
-        "production",
-        "brands",
-        "contacts"
-      ]
-    },
-    "name": {
-      "type": "string",
-      "required": true
-    }
-  },
+  "attributes": {},
   "config": {}
 }

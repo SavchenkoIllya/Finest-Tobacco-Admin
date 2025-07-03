@@ -16,18 +16,13 @@
     }
   },
   "attributes": {
-    "video": {
-      "type": "media",
+    "video_url": {
+      "type": "text",
       "pluginOptions": {
         "i18n": {
-          "localized": true
+          "localized": false
         }
-      },
-      "multiple": false,
-      "allowedTypes": [
-        "files",
-        "videos"
-      ]
+      }
     },
     "Header": {
       "type": "component",
@@ -79,16 +74,6 @@
       },
       "component": "shared.additional-about-section",
       "repeatable": false
-    },
-    "scroll_labels": {
-      "type": "component",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "shared.scroll-labels",
-      "repeatable": true
     },
     "contacts_section": {
       "type": "component",

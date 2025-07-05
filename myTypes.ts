@@ -38,6 +38,12 @@ export interface SharedCatalogue {
   formats?: Format[] | null;
 };
 
+export interface SharedContactList {
+  id?: number;
+  title?: string;
+  contacts?: Contact[] | null;
+};
+
 export interface SharedContact {
   id?: number;
   name?: string;
@@ -60,19 +66,32 @@ export interface SharedDescriptionField {
   property: "blend" | "cigarette_length" | "nicotine" | "tar" | "filter_parameters";
 };
 
+export interface SharedDocumentItem {
+  id?: number;
+  name?: string;
+  icon?: Media | null;
+  upload?: Media | null;
+};
+
+export interface SharedDocumentsList {
+  id?: number;
+  title?: string;
+  upload_items?: UploadItem[] | null;
+};
+
 export interface SharedFooter {
   id?: number;
+  legal_info?: SharedLegalInfo | null;
+  contact_list?: SharedContactList | null;
+  document_list?: SharedDocumentsList | null;
   copyrights?: string;
-  terms_conditions?: Media | null;
-  full_address?: string;
-  privacy_legal?: Media | null;
 };
 
 export interface SharedHeader {
   id?: number;
   logo?: Media | null;
-  Contacts?: SharedContact[] | null;
   navbar?: SharedNavbar | null;
+  contacts?: Contact[] | null;
 };
 
 export interface SharedInput {
@@ -80,6 +99,12 @@ export interface SharedInput {
   placeholder: string;
   field_name: string;
   type: "field" | "textarea";
+};
+
+export interface SharedLegalInfo {
+  id?: number;
+  title?: string;
+  full_address?: any;
 };
 
 export interface SharedMapLocation {
@@ -117,30 +142,6 @@ export interface SharedProductionSection {
   catchphrase?: string;
 };
 
-export interface SharedQuote {
-  id?: number;
-  title?: string;
-  body?: string;
-};
-
-export interface SharedRichText {
-  id?: number;
-  body?: string;
-};
-
-export interface SharedScrollLabels {
-  id?: number;
-};
-
-export interface SharedSeo {
-  id?: number;
-};
-
-export interface SharedSlider {
-  id?: number;
-  files?: Media[] | null;
-};
-
 export interface Brand {
   id?: number;
   documentId?: string;
@@ -161,6 +162,19 @@ export interface Category {
   publishedAt?: Date | string;
   locale?: string | null;
   name?: string;
+};
+
+export interface Contact {
+  id?: number;
+  documentId?: string;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  publishedAt?: Date | string;
+  locale?: string | null;
+  type: "whatsapp" | "telegram" | "email" | "phone" | "viber";
+  link: string;
+  title: string;
+  icon: Media | null;
 };
 
 export interface Format {
@@ -247,6 +261,18 @@ export interface Subscriber {
   locale?: string | null;
   name: string;
   email: string;
+};
+
+export interface UploadItem {
+  id?: number;
+  documentId?: string;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  publishedAt?: Date | string;
+  locale?: string | null;
+  document?: Media | null;
+  icon?: Media | null;
+  title?: string;
 };
 
 export interface Media {

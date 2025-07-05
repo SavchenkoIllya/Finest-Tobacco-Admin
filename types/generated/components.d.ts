@@ -100,6 +100,17 @@ export interface SharedContact extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedContactList extends Struct.ComponentSchema {
+  collectionName: 'components_shared_contact_lists';
+  info: {
+    displayName: 'Contact List';
+  };
+  attributes: {
+    contacts: Schema.Attribute.Relation<'oneToMany', 'api::contact.contact'>;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface SharedContactsSection extends Struct.ComponentSchema {
   collectionName: 'components_shared_contacts_sections';
   info: {
@@ -131,16 +142,42 @@ export interface SharedDescriptionField extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedDocumentItem extends Struct.ComponentSchema {
+  collectionName: 'components_shared_document_items';
+  info: {
+    displayName: 'Document Item';
+  };
+  attributes: {
+    icon: Schema.Attribute.Media<'images' | 'files'>;
+    name: Schema.Attribute.String;
+    upload: Schema.Attribute.Media<'files'>;
+  };
+}
+
+export interface SharedDocumentsList extends Struct.ComponentSchema {
+  collectionName: 'components_shared_documents_lists';
+  info: {
+    displayName: 'Documents list';
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+    upload_items: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::upload-item.upload-item'
+    >;
+  };
+}
+
 export interface SharedFooter extends Struct.ComponentSchema {
   collectionName: 'components_shared_footers';
   info: {
     displayName: 'Footer';
   };
   attributes: {
+    contact_list: Schema.Attribute.Component<'shared.contact-list', false>;
     copyrights: Schema.Attribute.String;
-    full_address: Schema.Attribute.Text;
-    privacy_legal: Schema.Attribute.Media<'files'>;
-    terms_conditions: Schema.Attribute.Media<'files'>;
+    document_list: Schema.Attribute.Component<'shared.documents-list', false>;
+    legal_info: Schema.Attribute.Component<'shared.legal-info', false>;
   };
 }
 
@@ -150,8 +187,8 @@ export interface SharedHeader extends Struct.ComponentSchema {
     displayName: 'Header';
   };
   attributes: {
-    Contacts: Schema.Attribute.Component<'shared.contact', true>;
-    logo: Schema.Attribute.Media<'images' | 'files'>;
+    contacts: Schema.Attribute.Relation<'oneToMany', 'api::contact.contact'>;
+    logo: Schema.Attribute.Media<'images'>;
     navbar: Schema.Attribute.Component<'shared.navbar', false>;
   };
 }
@@ -169,6 +206,17 @@ export interface SharedInput extends Struct.ComponentSchema {
     type: Schema.Attribute.Enumeration<['field', 'textarea']> &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'field'>;
+  };
+}
+
+export interface SharedLegalInfo extends Struct.ComponentSchema {
+  collectionName: 'components_shared_legal_infos';
+  info: {
+    displayName: 'Legal Info';
+  };
+  attributes: {
+    full_address: Schema.Attribute.Blocks;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -250,61 +298,6 @@ export interface SharedProductionSection extends Struct.ComponentSchema {
   };
 }
 
-export interface SharedQuote extends Struct.ComponentSchema {
-  collectionName: 'components_shared_quotes';
-  info: {
-    displayName: 'Quote';
-    icon: 'indent';
-  };
-  attributes: {
-    body: Schema.Attribute.Text;
-    title: Schema.Attribute.String;
-  };
-}
-
-export interface SharedRichText extends Struct.ComponentSchema {
-  collectionName: 'components_shared_rich_texts';
-  info: {
-    description: '';
-    displayName: 'Rich text';
-    icon: 'align-justify';
-  };
-  attributes: {
-    body: Schema.Attribute.RichText;
-  };
-}
-
-export interface SharedScrollLabels extends Struct.ComponentSchema {
-  collectionName: 'components_shared_scroll_labels';
-  info: {
-    displayName: 'Scroll labels';
-  };
-  attributes: {};
-}
-
-export interface SharedSeo extends Struct.ComponentSchema {
-  collectionName: 'components_shared_seos';
-  info: {
-    description: '';
-    displayName: 'Seo';
-    icon: 'allergies';
-    name: 'Seo';
-  };
-  attributes: {};
-}
-
-export interface SharedSlider extends Struct.ComponentSchema {
-  collectionName: 'components_shared_sliders';
-  info: {
-    description: '';
-    displayName: 'Slider';
-    icon: 'address-book';
-  };
-  attributes: {
-    files: Schema.Attribute.Media<'images', true>;
-  };
-}
-
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
@@ -314,22 +307,21 @@ declare module '@strapi/strapi' {
       'shared.brands-section': SharedBrandsSection;
       'shared.catalogue': SharedCatalogue;
       'shared.contact': SharedContact;
+      'shared.contact-list': SharedContactList;
       'shared.contacts-section': SharedContactsSection;
       'shared.description-field': SharedDescriptionField;
+      'shared.document-item': SharedDocumentItem;
+      'shared.documents-list': SharedDocumentsList;
       'shared.footer': SharedFooter;
       'shared.header': SharedHeader;
       'shared.input': SharedInput;
+      'shared.legal-info': SharedLegalInfo;
       'shared.map-location': SharedMapLocation;
       'shared.media': SharedMedia;
       'shared.nav-item': SharedNavItem;
       'shared.navbar': SharedNavbar;
       'shared.pillar': SharedPillar;
       'shared.production-section': SharedProductionSection;
-      'shared.quote': SharedQuote;
-      'shared.rich-text': SharedRichText;
-      'shared.scroll-labels': SharedScrollLabels;
-      'shared.seo': SharedSeo;
-      'shared.slider': SharedSlider;
     }
   }
 }

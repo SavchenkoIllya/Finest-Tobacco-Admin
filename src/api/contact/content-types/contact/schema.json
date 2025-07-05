@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "brands",
+  "collectionName": "contacts",
   "info": {
-    "singularName": "brand",
-    "pluralName": "brands",
-    "displayName": "Brand"
+    "singularName": "contact",
+    "pluralName": "contacts",
+    "displayName": "Contact"
   },
   "options": {
     "draftAndPublish": true
@@ -15,7 +15,24 @@
     }
   },
   "attributes": {
-    "name": {
+    "type": {
+      "type": "enumeration",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "required": true,
+      "default": "phone",
+      "enum": [
+        "whatsapp",
+        "telegram",
+        "email",
+        "phone",
+        "viber"
+      ]
+    },
+    "link": {
       "type": "string",
       "pluginOptions": {
         "i18n": {
@@ -24,15 +41,16 @@
       },
       "required": true
     },
-    "description": {
-      "type": "text",
+    "title": {
+      "type": "string",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      }
+      },
+      "required": true
     },
-    "logo": {
+    "icon": {
       "type": "media",
       "pluginOptions": {
         "i18n": {
@@ -40,6 +58,7 @@
         }
       },
       "multiple": false,
+      "required": true,
       "allowedTypes": [
         "images"
       ]

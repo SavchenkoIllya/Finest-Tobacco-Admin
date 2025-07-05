@@ -5,25 +5,23 @@
   },
   "options": {},
   "attributes": {
+    "legal_info": {
+      "type": "component",
+      "component": "shared.legal-info",
+      "repeatable": false
+    },
+    "contact_list": {
+      "type": "component",
+      "component": "shared.contact-list",
+      "repeatable": false
+    },
+    "document_list": {
+      "type": "component",
+      "component": "shared.documents-list",
+      "repeatable": false
+    },
     "copyrights": {
       "type": "string"
-    },
-    "terms_conditions": {
-      "type": "media",
-      "multiple": false,
-      "allowedTypes": [
-        "files"
-      ]
-    },
-    "full_address": {
-      "type": "text"
-    },
-    "privacy_legal": {
-      "type": "media",
-      "multiple": false,
-      "allowedTypes": [
-        "files"
-      ]
     }
   },
   "config": {}

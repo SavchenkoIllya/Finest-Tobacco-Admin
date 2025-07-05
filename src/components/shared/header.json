@@ -9,19 +9,18 @@
       "type": "media",
       "multiple": false,
       "allowedTypes": [
-        "images",
-        "files"
+        "images"
       ]
-    },
-    "Contacts": {
-      "type": "component",
-      "component": "shared.contact",
-      "repeatable": true
     },
     "navbar": {
       "type": "component",
       "component": "shared.navbar",
       "repeatable": false
+    },
+    "contacts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::contact.contact"
     }
   },
   "config": {}

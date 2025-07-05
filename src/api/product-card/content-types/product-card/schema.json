@@ -17,11 +17,21 @@
   "attributes": {
     "description_fields": {
       "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
       "component": "shared.description-field",
       "repeatable": true
     },
     "close_text": {
       "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
       "default": "Close",
       "required": true
     }
